@@ -32,6 +32,16 @@ def trace_forward_backward_example(n):
         print("Backward", n)
 
 
-trace_forward_example(3)
-trace_backward_example(3)
-trace_forward_backward_example(3)
+def tree_recursion(n):
+    if n > 0:
+        print("Forward ", n)
+        tree_recursion(n - 1)
+        tree_recursion(n - 1)
+        print("Backward ", n)
+
+
+if __name__ == '__main__':
+    # trace_forward_example(3)
+    # trace_backward_example(3)
+    # trace_forward_backward_example(3)
+    tree_recursion(3)
