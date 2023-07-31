@@ -1,3 +1,0 @@
-Types of Data Structures
-    Physical DS - Array, List
-    Logical DS - Hash, Stack, Graph, Queues, Tress
