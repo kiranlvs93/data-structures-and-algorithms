@@ -22,4 +22,17 @@ def get_transpose(array):
     return transpose
 
 
+def get_transpose_one_liner(array):
+    """
+    The "*" sign unpacks the matrix (removes the outer brackets).
+    The "zip" function for each row, takes all the elements at index i, for each i, and forms a column,
+    thus returning in the end an unpacked transposed matrix.
+    The "list" function packs it back to a matrix.
+    :param array:
+    :return:
+    """
+    return list(zip(*array))
+
+
 print(get_transpose(array_to_transpose))
+print(get_transpose_one_liner(array_to_transpose))
