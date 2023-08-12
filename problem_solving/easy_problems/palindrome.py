@@ -1,3 +1,8 @@
+"""
+Find if a string is a palindrome or not.
+"""
+
+
 def palindrome_best_method(inp_str: str):
     """
     Space complexity O(1)
