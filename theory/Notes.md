@@ -45,3 +45,17 @@ always denoted in worst case scenario
 
 ### Logarithm
 In computer science, logarithm is always to the base of 2 i.e., `BINARY LOGARITHM`.
+
+
+### Hash Table
+* Time complexity - O(1) - Search and write operations (insertion and deletion) in a hash table are of constant
+* Space complexity - O(N) - As the space depends on number of elements stored 
+* Hash tables are built on dynamic array of linked lists
+* All keys are derived from the ASCII
+* E.g., ASCII value of FOO - 70+79+79 = 228 and then a hashing function is used to map them to indices
+* Collision in hash table refers to a condition where two keys have same ASCII value. In this case, the keys are stored
+as LinkedList.
+* To avoid the collision, powerful hashing algorithms are developed such that the hashed keys are always unique
+* So, best time complexity - O(1) and worst time complexity - O(N) in case of collision
+* Resizing - Hash tables are resized as the number of keys to be stored increase
+
