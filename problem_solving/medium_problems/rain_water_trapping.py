@@ -29,39 +29,53 @@ def brute_force_solution(arr):
     :param arr:
     :return:
     """
-    pass
+    if len(arr) < 3:
+        return 0
+    n = len(arr)
+    max_height = [arr[0]]
+    for i in range(1, n - 1):
+        l = max(arr[:i])
+        r = max(arr[i + 1:])
+        m = min(l, r)
+        if m > arr[i]:
+            max_height.append(m)
+        else:
+            max_height.append(arr[i])
+    max_height.append(arr[-1])
+    water_ht = 0
+    for i in range(n):
+        water_ht += max_height[i] - arr[i]
+    return water_ht
 
 
 @print_inp_op
-def optimized_solution(arr):
-    """
-    Solution - Optimized
-    :param arr:
-    :return:
-    """
-    # find max height on left of every element and carry forward the max height
-    N = len(arr)
+def rain_water_tapping(arr):
+    n = len(arr)
+
+    # Find the max on left for each position
     max_left = [arr[0]]
-    for i in range(1, N):
-        max_ele = max(arr[i], max_left[i - 1])
-        max_left.append(max_ele)
-    print(f"{max_left=}")
+    for i in range(1, n):
+        max_left.append(max(max_left[i - 1], arr[i]))
 
-    # find max height on right of every element and carry forward the max height
-    max_right = [0] * N
-    max_right[N-1] = arr[N-1]
-    for i in range(N - 2, -1, -1):
-        max_right[i] = max(max_right[i+1], arr[i])
-    print(f"{max_right=}")
+    # Find the max on right for each position
+    max_right = [0] * n
+    max_right[-1] = arr[-1]
+    for i in range(n - 2, -1, -1):
+        max_right[i] = max(max_right[i + 1], arr[i])
 
-    # Find sum of trapped water
+    # Trapped water at each position = min(max_left,max_right) - current_position
     trapped_water = 0
-    for i in range(N):
+    for i in range(n):
         trapped_water += min(max_left[i], max_right[i]) - arr[i]
     return trapped_water
 
 
-
-# optimized_solution([5, 4, 1, 4, 3, 2, 7])
-optimized_solution([1, 4, 3, 5, 7, 2, 4, 3, 6, 8, 2])
-# optimized_solution([3, 2, 1, 4, 7, 9])
+rain_water_tapping([5, 4, 1, 4, 3, 2, 7])
+rain_water_tapping([3, 2, 1, 4, 7, 9])
+rain_water_tapping([1, 4, 3, 5, 7, 2, 4, 3, 6, 8, 2])
+rain_water_tapping([5, 4, 1, 4, 3, 2, 7, 1, 8])
+rain_water_tapping([0, 1, 0, 2])
+rain_water_tapping([0, 1, 0, 2])
+rain_water_tapping([5, 9, 10])
+rain_water_tapping([5, 9, 7])
+rain_water_tapping([5, 0, 7])
