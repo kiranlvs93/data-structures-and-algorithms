@@ -10,6 +10,7 @@ def print_inp_op(func):
             print(f"Input kwargs -> {kwargs}")
         result = func(*args, **kwargs)
         print(f"{result=}")
+        print("="*30)
         return result
 
     return wrapper

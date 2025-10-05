@@ -14,3 +14,7 @@ def check_if_ap(inp_arr):
         if inp_arr[i] - inp_arr[i+1] != diff:
             return 0
     return 1
+
+check_if_ap([3, 5, 1])
+check_if_ap([3, 5, 5])
+check_if_ap([1, 5, 9])
