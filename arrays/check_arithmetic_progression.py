@@ -6,14 +6,16 @@ A sequence of numbers is called an arithmetic progression if the difference betw
 
 from decorators.decorators_util import print_inp_op
 
+
 @print_inp_op
 def check_if_ap(inp_arr):
     inp_arr.sort()
     diff = inp_arr[0] - inp_arr[1]
-    for i in range(1, len(inp_arr)-1):
-        if inp_arr[i] - inp_arr[i+1] != diff:
+    for i in range(1, len(inp_arr) - 1):
+        if inp_arr[i] - inp_arr[i + 1] != diff:
             return 0
     return 1
+
 
 check_if_ap([3, 5, 1])
 check_if_ap([3, 5, 5])
